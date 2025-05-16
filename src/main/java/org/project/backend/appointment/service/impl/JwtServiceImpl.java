@@ -70,7 +70,7 @@ public class JwtServiceImpl implements JwtService {
         .setSubject(userDetails.getUsername())
         .setIssuedAt(new Date(System.currentTimeMillis()))
         .setExpiration(new Date(System.currentTimeMillis() + ttl))
-        .signWith(SignatureAlgorithm.HS256, getSigningKey())
+        .signWith(getSigningKey(), SignatureAlgorithm.HS256)
         .compact();
   }
 
